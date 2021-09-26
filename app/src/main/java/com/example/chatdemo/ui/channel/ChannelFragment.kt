@@ -40,9 +40,15 @@ class ChannelFragment : Fragment() {
             setupUser()
             setupChannels()
 
-//            channelListHeaderView.setOnActionButtonClickListener {
-//                findNavController().navigate(R.id.action_channelFragment_to_usersFragment)
-//            }
+            channelListHeaderView.setOnActionButtonClickListener {
+                findNavController().navigate(R.id.action_channelFragment_to_usersFragment)
+            }
+
+            channelsView.setChannelItemClickListener { channel ->
+                val action =
+                    ChannelFragmentDirections.actionChannelFragmentToChatFragment(channel.cid)
+                findNavController().navigate(action)
+            }
         }
     }
 
