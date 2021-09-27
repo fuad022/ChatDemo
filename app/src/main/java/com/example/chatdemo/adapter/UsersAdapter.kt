@@ -21,24 +21,11 @@ class UsersAdapter : ListAdapter<User, UsersAdapter.ItemHolder>(DiffCallback()) 
 
         private val client = ChatClient.instance()
 
-        /*
-     var firstSampleString: String? = null
-     var secondSampleString: String? = "Second Sample Text"
-     var firstVariable: Int = firstSampleString ?.length ?: -1
-     var secondVariable: Int = secondSampleString?.length ?: -1
-         */
-
         fun bind(currentUser: User, holder: ItemHolder) {
             binding.apply {
-                Log.d("UsersAdapter", "BIND START")
                 avatarImageView.setUserData(currentUser)
-                Log.d("UsersAdapter", "Current user - " + currentUser.toString())
                 usernameTextView.text = currentUser.id
-                Log.d("UsersAdapter", "usernameTextView - " + usernameTextView.text.toString())
-                Log.d("UsersAdapter", "createdAt - " + currentUser.createdAt!!.time.toString())
-                Log.d("UsersAdapter", "lastActive - " + currentUser.lastActive!!.time.toString())
                 lastActiveTextView.text = convertDate(currentUser.lastActive!!.time)
-                Log.d("UsersAdapter", "lastActiveTextView")
                 rootLayout.setOnClickListener {
                     createNewChannel(currentUser.id, holder)
                 }

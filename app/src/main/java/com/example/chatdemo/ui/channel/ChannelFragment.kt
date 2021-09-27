@@ -60,6 +60,7 @@ class ChannelFragment : Fragment() {
                     "name" to args.chatUser.firstname
                 )
             )
+            Log.d("ChannelAdapter", "User - " + user)
             val token = client.devToken(user.id)
             client.connectUser(
                 user,
